@@ -48,13 +48,11 @@ class Books(BaseModel):
         if check.lower() == "x":
             check = 10
 
-        digits.append(check)
-
         weighted_sum = sum([int(digit) * (10 - i) for i, digit in enumerate(digits)])
 
         mod = weighted_sum % 11
 
-        if mod == check:
+        if mod == int(check):
             return value
         
         raise ValueError("Failed mod11 check")
